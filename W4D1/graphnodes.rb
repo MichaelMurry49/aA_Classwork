@@ -11,6 +11,21 @@ class GraphNode
         end
     end
 
+    def self.bfs_visit_limit(start_node, target_value)
+        queue = []
+        visited = []
+        queue << start_node
+        until queue.empty?
+            cur_node = queue.shift
+            visited.each do |node|
+                cur_node.neighbors.delete(node)
+            end
+            visited << cur_node
+            return cur_node if cur_node.value == target_value
+            queue += cur_node.neighbors
+        end
+    end
+
     def initialize(value)
         @value = value
         @neighbors = []
@@ -38,3 +53,5 @@ e.add_neighbors([a])
 f.add_neighbors([e])
 p GraphNode.bfs(a, "b")
 #p GraphNode.bfs(a, "f")
+p GraphNode.bfs_visit_limit(a, "b")
+p GraphNode.bfs_visit_limit(a, "f")
