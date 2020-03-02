@@ -1,5 +1,16 @@
 class GraphNode
     attr_reader :value, :neighbors
+
+    def self.bfs(start_node, target_value)
+        queue = []
+        queue << start_node
+        until queue.empty?
+            cur_node = queue.shift
+            return cur_node if cur_node.value == target_value
+            queue += cur_node.neighbors
+        end
+    end
+
     def initialize(value)
         @value = value
         @neighbors = []
@@ -12,6 +23,7 @@ class GraphNode
     def add_neighbors(nodes)
         @neighbors += nodes
     end
+
 end
 
 a = GraphNode.new('a')
@@ -24,3 +36,5 @@ a.add_neighbors([b, c, e])
 c.add_neighbors([b, d])
 e.add_neighbors([a])
 f.add_neighbors([e])
+p GraphNode.bfs(a, "b")
+#p GraphNode.bfs(a, "f")
