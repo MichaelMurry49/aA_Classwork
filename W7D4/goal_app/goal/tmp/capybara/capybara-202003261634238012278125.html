@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Goal</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-606071e63663828cab176c95ba21a3ac7829ef0ed117bdd2ab7bdbcb1c510a7f.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+    <h1>Create User</h1>
+
+<form action="/users" method="POST">
+    <input type='hidden' name='authenticity_token' value='tQ3QEepRD/e99DRukgRnwQhey9nu3gt/tcwfSRVvZotJUNEZA0XJWC3ftC+HMRUnxJoPluK5tn1T/+LP+XubTQ=='>
+    <label>Username:
+        <input type="text" name="user[username]">
+    </label>
+
+    <label>Password:
+        <input type="password" name="user[password]">
+    </label>
+
+    <button type="submit">Create</button>
+</form>
+  </body>
+</html>
